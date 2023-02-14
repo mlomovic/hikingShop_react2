@@ -16,29 +16,36 @@ import NotFound from './pages/NotFound';
 
 import { Routes, Route } from 'react-router-dom';
 
+import { ProductsProvider } from './contexts/ProductsContext';
+import { CartProvider } from './contexts/CartContext';
+
 // import './App.css';
 
 const App = () => {
 
   return (
     <div>
-      <Topbar />
-      <Navbar />
+      <ProductsProvider>
+        <CartProvider>
+          <Topbar />
+          <Navbar />
 
-      <Routes>
-        
-        <Route path='/' element={<Home />}/>
-        <Route path='/products' element={<Products />}/>
-        <Route path='/single/:id' element={<Single />}/>
-        <Route path='/about' element={<About />}/>
-        <Route path='/contact' element={<Contact />}/>
-        <Route path='/cart' element={<Cart />}/>
-        <Route path='/admin' element={<Admin />}/>
-        <Route path='/*' element={<NotFound />}/>
-    
-      </Routes>
+          <Routes>
 
-      <Footer />
+            <Route path='/' element={<Home />} />
+            <Route path='/products' element={<Products />} />
+            <Route path='/single/:id' element={<Single />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='/*' element={<NotFound />} />
+
+          </Routes>
+
+          <Footer />
+        </CartProvider>
+      </ProductsProvider>
     </div>
   );
 }
