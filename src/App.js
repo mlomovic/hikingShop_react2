@@ -19,7 +19,6 @@ import { Routes, Route } from 'react-router-dom';
 import { ProductsProvider } from './contexts/ProductsContext';
 import { CartProvider } from './contexts/CartContext';
 
-// import './App.css';
 
 const App = () => {
 
